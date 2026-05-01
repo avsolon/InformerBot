@@ -17,6 +17,8 @@ from handlers.currency import show_currency
 from handlers.stats import weather_stats
 from states import WAIT_CITY
 
+async def error_handler(update, context):
+    print("ERROR:", context.error)
 
 def main():
     app = Application.builder().token(BOT_TOKEN).build()
@@ -44,6 +46,8 @@ def main():
 
     # 🌤 conversation
     app.add_handler(weather_conv)
+
+    app.add_error_handler(error_handler)
 
     print("Bot started...")
     app.run_polling()
