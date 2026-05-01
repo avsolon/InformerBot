@@ -3,6 +3,7 @@ from telegram.ext import ContextTypes
 from services.weather_service import get_weather
 from utils.logger.weather_logger import log_weather
 from utils.keyboards import back_button
+from states import WAIT_CITY
 
 async def ask_city(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.callback_query.message.reply_text("Введите город:")

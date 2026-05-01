@@ -4,9 +4,7 @@ from telegram.ext import ContextTypes, ConversationHandler
 from utils.keyboards import main_menu_inline
 from handlers.weather import ask_city
 from handlers.currency import show_currency
-
-# состояния
-WAIT_CITY = 1
+from states import WAIT_CITY
 
 
 async def menu_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
