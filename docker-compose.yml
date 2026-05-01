@@ -1,0 +1,13 @@
+services:
+  bot:
+    build: .
+    container_name: tg_info_bot
+    restart: always
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./data:/app/data
+
+    command: python main.py

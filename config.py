@@ -9,4 +9,9 @@ WEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 CBR_API_URL = "https://www.cbr-xml-daily.ru/daily_json.js"
 WEATHER_LOG_PATH = "data/weather_logs.csv"
 
-# ADMIN_IDS = [...]
+def parse_admins(raw: str):
+    if not raw:
+        return []
+    return [int(x.strip()) for x in raw.split(",") if x.strip().isdigit()]
+
+ADMIN_IDS = parse_admins(os.getenv("ADMIN_IDS"))
