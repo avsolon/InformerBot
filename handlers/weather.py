@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import ContextTypes
 from services.weather_service import get_weather
-from utils.analytics.repository import log_weather
+from utils.logger.weather_logger import log_weather
 from utils.keyboards import back_button
 
 async def ask_city(update: Update, context: ContextTypes.DEFAULT_TYPE):

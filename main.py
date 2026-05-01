@@ -62,9 +62,10 @@ def main():
     )
 
     app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("weather_stats", weather_stats))
     app.add_handler(conv)
     app.add_handler(CallbackQueryHandler(menu_click))
-    app.add_handler(CommandHandler("weather_stats", weather_stats))
+
 
     print("Bot started...")
     app.run_polling()
