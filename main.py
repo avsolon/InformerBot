@@ -24,7 +24,7 @@ def main():
     app.add_handler(
         CallbackQueryHandler(
             menu_click,
-            pattern="^(weather|currency|crypto|back|close|info)$"
+            pattern="^(weather|currency|crypto|crypto_top_3|crypto_top_10|back|close|info)$"
         )
     )
 

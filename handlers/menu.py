@@ -50,10 +50,19 @@ async def menu_click(update, context):
         from handlers.crypto import crypto_menu_handler
         return await crypto_menu_handler(update, context)
 
+    elif action == "crypto_top_3":
+        from handlers.crypto import show_top_3
+        return await show_top_3(update, context)
+
+    elif action == "crypto_top_10":
+        from handlers.crypto import show_top_10
+        return await show_top_10(update, context)
+
     # 💱 Currency
     elif action == "currency":
         from handlers.currency import show_currency
         await show_currency(update, context)
+
 
     # 🔙 Back
     elif action == "back":
