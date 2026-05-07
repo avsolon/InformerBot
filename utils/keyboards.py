@@ -33,6 +33,11 @@ def crypto_menu():
             InlineKeyboardButton("🔎 Поиск", callback_data="crypto_search")
         ],
         [
-            InlineKeyboardButton("🏠 Меню", callback_data="back")
+            InlineKeyboardButton("🏠 Назад", callback_data="back")
         ]
+    ])
+
+def crypto_back_button():
+    return InlineKeyboardMarkup([
+        [InlineKeyboardButton("🔙 Назад", callback_data="crypto")]
     ])
