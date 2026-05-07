@@ -5,15 +5,6 @@ from telegram import (
     KeyboardButton
 )
 
-def main_reply_keyboard():
-    return ReplyKeyboardMarkup(
-        [
-            ["🙂 Мой профиль"],
-            [KeyboardButton("Отправить контакт", request_contact=True)],
-            [KeyboardButton("Отправить геолокацию", request_location=True)]
-        ],
-        resize_keyboard=True
-    )
 
 def main_menu_inline():
     return InlineKeyboardMarkup([
