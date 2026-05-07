@@ -13,12 +13,12 @@ async def menu_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     action = query.data
 
-    # # 🌤️ Погода
-    # if action == "weather":
-    #     return await ask_city(update, context)
+    # 🌤️ Погода
+    if action == "weather":
+        return await ask_city(update, context)
 
     # 💱 Валюта
-    if action == "currency":
+    elif action == "currency":
         await show_currency(update, context)
         return ConversationHandler.END
 
