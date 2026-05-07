@@ -9,10 +9,11 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text = (
         f"👋 Привет, {user.first_name}!\n\n"
-        "Я информационный бот.\n"
-        "Могу показать:\n"
+        "Я инфо бот.\n"
+        "Могу тебе показать:\n"
         "• 🌤️ Погоду\n"
         "• 📈 Курсы валют\n\n"
+        "• 📉 Курсы криптовалют\n\n"
         "Выбери действие 👇"
     )
 

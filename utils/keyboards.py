@@ -22,7 +22,7 @@ def main_menu_inline():
             InlineKeyboardButton("📈 Валюта", callback_data="currency")
         ],
         [
-            InlineKeyboardButton("📉 Криптовалюта", callback_data="crypto"),
+            InlineKeyboardButton("📉 Крипта", callback_data="crypto"),
             InlineKeyboardButton("🖥️ Сайт", url="https://asolontsov.ru")
         ],
         [
