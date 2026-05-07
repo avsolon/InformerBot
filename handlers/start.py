@@ -17,10 +17,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Выбери действие 👇"
     )
 
-    # await update.message.reply_text(
-    #     text,
-    #     reply_markup=main_reply_keyboard()
-    # )
+    await update.message.reply_text(
+        text
+    )
 
     await update.message.reply_text(
         "📌 Основное меню:",
