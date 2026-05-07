@@ -2,7 +2,7 @@ from telegram import Update
 from telegram.ext import ContextTypes, ConversationHandler
 
 from utils.keyboards import main_menu_inline
-from handlers.weather import ask_city
+from handlers.weather import ask_city, show_weather
 from handlers.currency import show_currency
 from states import WAIT_CITY
 

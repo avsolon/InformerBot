@@ -26,7 +26,7 @@ def main():
     # 🌤 Conversation: погода
     weather_conv = ConversationHandler(
         entry_points=[
-            CallbackQueryHandler(menu_click, pattern="^weather$")
+            CallbackQueryHandler(ask_city, pattern="weather")
         ],
         states={
             WAIT_CITY: [
