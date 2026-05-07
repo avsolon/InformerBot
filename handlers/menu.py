@@ -25,46 +25,46 @@ async def show_home(update, context):
             reply_markup=main_menu_inline()
         )
 
-    async def go_back(update, context):
-        router = context.user_data["router"]
-        router.pop()
+async def go_back(update, context):
+    router = context.user_data["router"]
+    router.pop()
 
-        await show_home(update, context)
+    await show_home(update, context)
 
-    async def menu_click(update, context):
-        query = update.callback_query
-        await query.answer()
+async def menu_click(update, context):
+    query = update.callback_query
+    await query.answer()
 
-        action = query.data
+    action = query.data
 
-        router = context.user_data.setdefault("router", UIRouter())
-        router.push(action)
+    router = context.user_data.setdefault("router", UIRouter())
+    router.push(action)
 
-        # 🌤 Weather
-        if action == "weather":
-            from handlers.weather import ask_city
-            return await ask_city(update, context)
+    # 🌤 Weather
+    if action == "weather":
+        from handlers.weather import ask_city
+        return await ask_city(update, context)
 
-        # 🪙 Crypto
-        elif action == "crypto":
-            from handlers.crypto import crypto_menu_handler
-            return await crypto_menu_handler(update, context)
+    # 🪙 Crypto
+    elif action == "crypto":
+        from handlers.crypto import crypto_menu_handler
+        return await crypto_menu_handler(update, context)
 
-        # 💱 Currency
-        elif action == "currency":
-            from handlers.currency import show_currency
-            await show_currency(update, context)
+    # 💱 Currency
+    elif action == "currency":
+        from handlers.currency import show_currency
+        await show_currency(update, context)
 
-        # 🔙 Back
-        elif action == "back":
-            return await go_back(update, context)
+    # 🔙 Back
+    elif action == "back":
+        return await go_back(update, context)
 
-        # ❌ Close = НЕ ломаем UI
-        elif action == "close":
-            await query.message.edit_text("🔒 Окно закрыто. Нажми /start")
-            router.reset()
+    # ❌ Close = НЕ ломаем UI
+    elif action == "close":
+        await query.message.edit_text("🔒 Окно закрыто. Нажми /start")
+        router.reset()
 
-        return None
+    return None
 
 # from telegram import Update
 # from telegram.ext import ContextTypes, ConversationHandler
