@@ -25,14 +25,6 @@ def main():
     # ✅ START
     app.add_handler(CommandHandler("start", start))
 
-    # ✅ MENU CALLBACKS
-    app.add_handler(
-        CallbackQueryHandler(
-            menu_click,
-            pattern="^(weather|currency|crypto|crypto_top_3|crypto_top_10|crypto_search|back)$"
-        )
-    )
-
     # ✅ WEATHER FSM
     weather_conv = ConversationHandler(
         entry_points=[
@@ -76,6 +68,14 @@ def main():
     )
 
     app.add_handler(crypto_search_conv)
+
+    # ✅ MENU CALLBACKS
+    app.add_handler(
+        CallbackQueryHandler(
+            menu_click,
+            pattern="^(currency|crypto|crypto_top_3|crypto_top_10|crypto_search|back)$"
+        )
+    )
 
     app.add_handler(CommandHandler("weather_stats", weather_stats))
 
