@@ -22,11 +22,11 @@ def main_menu_inline():
             InlineKeyboardButton("📈 Валюта", callback_data="currency")
         ],
         [
-            InlineKeyboardButton("⚠ Инфо", callback_data="info"),
-            InlineKeyboardButton("🖥️ Магазин", url="https://akbnsk.ru")
+            InlineKeyboardButton("📉 Криптовалюта", callback_data="crypto"),
+            InlineKeyboardButton("🖥️ Сайт", url="https://asolontsov.ru")
         ],
         [
-            InlineKeyboardButton("❌ Закрыть", callback_data="close")
+            InlineKeyboardButton("❌ Очистить", callback_data="close")
         ]
     ])
 

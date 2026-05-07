@@ -14,7 +14,7 @@ from handlers.menu import menu_click
 from handlers.weather import show_weather
 from handlers.stats import weather_stats
 
-from states import WAIT_CITY
+from states.states import WAIT_CITY
 
 
 async def error_handler(update, context):
@@ -50,7 +50,7 @@ def main():
     app.add_handler(
         CallbackQueryHandler(
             menu_click,
-            pattern="^(currency|back|close|info)$"
+            pattern="^(currency|crypto|back|close)$"
         )
     )
 

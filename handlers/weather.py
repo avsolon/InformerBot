@@ -4,7 +4,7 @@ from telegram.ext import ContextTypes, ConversationHandler
 from services.weather_service import get_weather
 from utils.logger.weather_logger import log_weather
 from utils.keyboards import back_button
-from states import WAIT_CITY
+from states.states import WAIT_CITY
 
 
 async def ask_city(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -20,7 +20,6 @@ async def ask_city(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def show_weather(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    print("SHOW_WEATHER CALLED")
     city = update.message.text.strip()
 
     user = update.effective_user

@@ -3,6 +3,7 @@ from telegram.ext import ContextTypes, ConversationHandler
 
 from handlers.weather import ask_city
 from handlers.currency import show_currency
+from handlers.crypto import show_crypto
 
 from utils.keyboards import main_menu_inline
 
@@ -21,6 +22,11 @@ async def menu_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # 💱 Валюта
     elif action == "currency":
         await show_currency(update, context)
+        return ConversationHandler.END
+
+    # Крипта
+    elif action == "crypto":
+        await show_crypto(update, context)
         return ConversationHandler.END
 
     # 🔙 Назад
