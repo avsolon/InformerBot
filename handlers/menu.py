@@ -1,6 +1,6 @@
 from telegram import Update
 from telegram.ext import ContextTypes
-from utils.keyboards import main_menu_inline
+from utils.keyboards import main_menu, crypto_menu
 from utils.ui.router import UIRouter
 
 
@@ -17,12 +17,12 @@ async def show_home(update, context):
     if update.message:
         await update.message.reply_text(
             text,
-            reply_markup=main_menu_inline()
+            reply_markup=main_menu()
         )
     else:
         await update.callback_query.edit_message_text(
             text,
-            reply_markup=main_menu_inline()
+            reply_markup=main_menu()
         )
 
 async def go_back(update, context):
@@ -58,6 +58,10 @@ async def menu_click(update, context):
         from handlers.crypto import show_top_10
         return await show_top_10(update, context)
 
+    elif action == "crypto_search":
+        from handlers.crypto import ask_search
+        return await ask_search(update, context)
+
     # 💱 Currency
     elif action == "currency":
         from handlers.currency import show_currency
@@ -67,11 +71,6 @@ async def menu_click(update, context):
     # 🔙 Back
     elif action == "back":
         return await go_back(update, context)
-
-    # ❌ Close = НЕ ломаем UI
-    elif action == "close":
-        await query.message.edit_text("🔒 Окно закрыто. Нажми /start")
-        router.reset()
 
     return None
 

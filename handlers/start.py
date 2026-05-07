@@ -1,16 +1,14 @@
 from telegram import Update
 from telegram.ext import ContextTypes
 
-from utils.keyboards import main_menu_inline
+from utils.keyboards import main_menu
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-    print("START TRIGGERED")  # 🔥 ДИАГНОСТИКА
-
     await update.message.reply_text(
         "🏠 Главное меню",
-        reply_markup=main_menu_inline()
+        reply_markup=main_menu()
     )
 
 # async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -32,5 +30,5 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 #
 #     await update.message.reply_text(
 #         "📌 Основное меню:",
-#         reply_markup=main_menu_inline()
+#         reply_markup=main_menu()
 #     )

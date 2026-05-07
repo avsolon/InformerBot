@@ -3,7 +3,8 @@ from telegram.ext import (
     CommandHandler,
     CallbackQueryHandler,
     MessageHandler,
-    filters,
+    ConversationHandler,
+    filters
 )
 
 from config import BOT_TOKEN
@@ -12,6 +13,9 @@ from handlers.start import start
 from handlers.menu import menu_click
 from handlers.weather import show_weather
 from handlers.stats import weather_stats
+from handlers.crypto import ask_search, handle_search
+
+from states.crypto import WAIT_COIN_SEARCH
 
 
 def main():
@@ -20,11 +24,11 @@ def main():
     # ✅ START
     app.add_handler(CommandHandler("start", start))
 
-    # ✅ INLINE MENU
+    # ✅ MENU CALLBACKS
     app.add_handler(
         CallbackQueryHandler(
             menu_click,
-            pattern="^(weather|currency|crypto|crypto_top_3|crypto_top_10|back|close|info)$"
+            pattern="^(weather|currency|crypto|crypto_top_3|crypto_top_10|crypto_search|back)$"
         )
     )
 
@@ -35,6 +39,28 @@ def main():
             show_weather
         )
     )
+
+    # ✅ CRYPTO SEARCH FSM
+    crypto_search_conv = ConversationHandler(
+        entry_points=[
+            CallbackQueryHandler(
+                ask_search,
+                pattern="^crypto_search$"
+            )
+        ],
+        states={
+            WAIT_COIN_SEARCH: [
+                MessageHandler(
+                    filters.TEXT & ~filters.COMMAND,
+                    handle_search
+                )
+            ]
+        },
+        fallbacks=[],
+        per_message=False
+    )
+
+    app.add_handler(crypto_search_conv)
 
     # (если есть stats)
     app.add_handler(CommandHandler("weather_stats", weather_stats))
