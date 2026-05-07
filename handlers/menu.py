@@ -1,3 +1,5 @@
+from telegram import Update
+from telegram.ext import ContextTypes
 from utils.keyboards import main_menu_inline
 from utils.ui.router import UIRouter
 
