@@ -50,7 +50,7 @@ def main():
     app.add_handler(
         CallbackQueryHandler(
             menu_click,
-            pattern="^(currency|crypto|back|close)$"
+            pattern="^(currency|crypto|crypto_top_3|crypto_top_10|back|close)$"
         )
     )
 

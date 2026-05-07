@@ -8,7 +8,8 @@ async def get_top_crypto(limit=3):
         "order": "market_cap_desc",
         "per_page": limit,
         "page": 1,
-        "sparkline": "false"
+        "sparkline": "false",
+        "price_change_percentage": "24h"
     }
 
     async with aiohttp.ClientSession() as session:

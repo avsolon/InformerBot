@@ -12,7 +12,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Я инфо бот.\n"
         "Могу тебе показать:\n"
         "• 🌤️ Погоду\n"
-        "• 📈 Курсы валют\n\n"
+        "• 📈 Курсы валют\n"
         "• 📉 Курсы криптовалют\n\n"
         "Выбери действие 👇"
     )

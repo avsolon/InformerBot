@@ -3,7 +3,11 @@ from telegram.ext import ContextTypes, ConversationHandler
 
 from handlers.weather import ask_city
 from handlers.currency import show_currency
-from handlers.crypto import show_crypto
+from handlers.crypto import (
+    crypto_menu_handler,
+    show_top_3,
+    show_top_10
+)
 
 from utils.keyboards import main_menu_inline
 
@@ -26,7 +30,15 @@ async def menu_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # Крипта
     elif action == "crypto":
-        await show_crypto(update, context)
+        await crypto_menu_handler(update, context)
+        return ConversationHandler.END
+
+    elif action == "crypto_top_3":
+        await show_top_3(update, context)
+        return ConversationHandler.END
+
+    elif action == "crypto_top_10":
+        await show_top_10(update, context)
         return ConversationHandler.END
 
     # 🔙 Назад
