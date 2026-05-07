@@ -4,11 +4,14 @@ from telegram.ext import ContextTypes
 from utils.keyboards import main_menu_inline
 
 
-async def start(update, context):
-    router = context.user_data.setdefault("router", UIRouter())
-    router.reset()
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-    await show_home(update, context)
+    print("START TRIGGERED")  # 🔥 ДИАГНОСТИКА
+
+    await update.message.reply_text(
+        "🏠 Главное меню",
+        reply_markup=main_menu_inline()
+    )
 
 # async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 #     user = update.effective_user
