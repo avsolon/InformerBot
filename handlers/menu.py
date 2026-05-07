@@ -50,10 +50,10 @@ async def menu_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         return ConversationHandler.END
 
-    # ❌ Закрыть
-    elif action == "close":
-        await query.message.delete()
-
-        return ConversationHandler.END
+    # # ❌ Закрыть
+    # elif action == "close":
+    #     await query.message.delete()
+    #
+    #     return ConversationHandler.END
 
     return ConversationHandler.END

@@ -15,9 +15,6 @@ def main_menu_inline():
         [
             InlineKeyboardButton("📉 Крипта", callback_data="crypto"),
             InlineKeyboardButton("🖥️ Сайт", url="https://asolontsov.ru")
-        ],
-        [
-            InlineKeyboardButton("❌ Очистить", callback_data="close")
         ]
     ])
 
