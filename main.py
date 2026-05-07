@@ -24,7 +24,6 @@ async def error_handler(update, context):
 def main():
     app = Application.builder().token(BOT_TOKEN).build()
 
-    # 🌤️ conversation погоды
     weather_conv = ConversationHandler(
         entry_points=[
             CallbackQueryHandler(menu_click, pattern="^weather$")
@@ -38,18 +37,16 @@ def main():
             ]
         },
         fallbacks=[],
-        allow_reentry=True,
-        per_message=True
+        allow_reentry=True
     )
 
-    # команды
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("weather_stats", weather_stats))
 
-    # conversation
+    # conversation FIRST
     app.add_handler(weather_conv)
 
-    # остальные callback кнопки
+    # остальные кнопки
     app.add_handler(
         CallbackQueryHandler(
             menu_click,
@@ -57,7 +54,6 @@ def main():
         )
     )
 
-    # error handler
     app.add_error_handler(error_handler)
 
     print("Bot started...")

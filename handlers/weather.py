@@ -20,6 +20,7 @@ async def ask_city(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def show_weather(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    print("SHOW_WEATHER CALLED")
     city = update.message.text.strip()
 
     user = update.effective_user
